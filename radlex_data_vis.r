@@ -59,7 +59,7 @@ rownames(adjMatrix) = fieldNames
 #Create list of colors in viridis scale for each row label
 groupColors <- viridis(length(unlist(rownames(adjMatrix))))
 
-p <- chorddiag(adjMatrix, groupColors=groupColors, groupnamePadding=30, groupPadding=2, tickInterval = 1000, ticklabelFontsize=8, fadeLevel = 0.05)
+p <- chorddiag(adjMatrix, groupColors=groupColors, groupnamePadding=30, groupPadding=2, tickInterval = 1000, ticklabelFontsize=8, fadeLevel = 0.05, chordedgeColor = NULL)
 p
 
 #Save html widget
