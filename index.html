@@ -1,0 +1,209 @@
+
+    <html>
+      <head>
+        <title>README.md</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+      <body>
+        <div id='content'>
+    <h1 id="radlex_analysis">RadLex_Analysis</h1>
+<p><a href="http://radlex.org/">RadLex</a> is an ontology produced by RNSA focused on the domain of radiology. The goal of this project was to better understand the data contained within the ontology. </p>
+<h3>Shortcuts</h3>
+<p><a href="https://github.com/ashtonomy/RadLex_Analysis">Github Repo</a></p>
+<p><a href="https://ashtonomy.github.io/RadLex_Analysis/radlex_interactive.html">Chord Diagram of RadLex Word Co-Occurrences</a></p>
+<h2 id="radlex-word-frequency-and-co-occurrence">RadLex Word Frequency and Co-Occurrence</h2>
+<p>The first step in the process was determining the relative frequency of words in the RadLex "Preferred Labels" which was accomplished using NLP++. The preferred labels from the RadLex excel file were converted to a text file which was used as input for the NLP++ analyzer. Each unique word and its count was stored in a knowledge base and sorted by frequency. The <a href="https://en.wikipedia.org/wiki/Most_common_words_in_English">most common English words</a> were then filtered out and the remaining top 100 words were output to "top100WordCount.txt". </p>
+<p>The next goal was to see how these words were associated in the text. I aimed to represent the information as a graph in which each vertex corresponded to a word in the top 100 list and each edge corresponded to occurence in the same preffered label. Edge weights would then be assigned an integer count of co-occurences in preferred labels<sup><a href="#fn1">[1]</a></sup>. </p>
+<p>To achieve this, each of the top 100 words was mapped to an integer value corresponding to its index in the alphabetically sorted top 100 words list. Using NLP++, the text file of preferred labels was filtered to include only labels including two or more of the top 100 words; furthermore, all words not in the top 100 were excised. A text file was output to "indexList.txt" containing each label on a separate line, with each word replaced with its integer index. Python was used to create an adjacency matrix from this text file, using the numpy library to export the matrix to "adjacencyMatrix.txt". </p>
+<p>Finally, to visualize the data, I created a simple interactive chord diagram in R using the <a href="https://github.com/mattflor/chorddiag">ChordDiag package</a>.</p>
+<h3 id="view-interactive-diagramhttpsashtonomygithubioradlex_analysisradlex_interactivehtml"><a href="https://ashtonomy.github.io/RadLex_Analysis/radlex_interactive.html">View Interactive Diagram</a></h3>
+<p id="fn1">1: N.B. I chose to ignore order and proximity of word co-occurrences as well as co-occurrences of the same word, resulting in an undirected, acyclic graph. This may be interesting to revisit in the future.</p>
+
+        </div>
+        <style type='text/css'>body {
+  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  body > #content {
+    padding: 0px 20px 20px 20px !important;
+  }
+}
+
+body > #content {
+  margin: 0px;
+  max-width: 900px;
+  border: 1px solid #e1e4e8;
+  padding: 10px 40px;
+  padding-bottom: 20px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  color: #bbb;
+  background-color: #bbb;
+  height: 1px;
+  flex: 0 1 auto;
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+ * Links
+ */
+a {
+  color: #0366d6;
+  text-decoration: none; }
+  a:visited {
+    color: #0366d6; }
+  a:hover {
+    color: #0366d6;
+    text-decoration: underline; }
+
+pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+/**
+  * Code blocks
+  */
+
+code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  word-wrap: break-word;
+  padding: .2em .4em;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+
+pre > code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+  font-size: 100%;
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  margin-left: 30px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  border-left-width: 3px;
+  padding: 0 1em;
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+blockquote * {
+  font-style: normal !important;
+  letter-spacing: 0;
+  color: #6a737d !important;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-spacing: 2px;
+  display: block;
+  font-size: 14px;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+th {
+  font-weight: 600;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/**
+ * Others
+ */
+
+img {
+  max-width: 100%;
+}
+
+p {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #24292e; }
+
+ul {
+  margin-top: 0; }
+
+li {
+  color: #24292e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; }
+
+li + li {
+  margin-top: 0.25em; }
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #24292e; }
+
+a:visited {
+  color: #0366d6; }
+
+h1, h2, h3 {
+  border-bottom: 1px solid #eaecef;
+  color: #111;
+  /* Darker */ }</style>
+      </body>
+    </html>
