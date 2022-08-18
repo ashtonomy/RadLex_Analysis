@@ -12,4 +12,4 @@ Finally, to visualize the data, I created a simple interactive chord diagram in 
 
 ### [View Interactive Diagram](https://ashtonomy.github.io/RadLex_Analysis/radlex_interactive.html)
 
-[^1]: N.B. I chose to ignore order and proximity of word co-occurrences, resulting in an undirected graph. This may be interesting to revisit in the future.
+[^1]: N.B. I chose to ignore order and proximity of word co-occurrences as well as co-occurrences of the same word, resulting in an undirected, acyclic graph. This may be interesting to revisit in the future.
