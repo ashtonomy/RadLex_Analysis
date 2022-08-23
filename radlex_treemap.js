@@ -116,7 +116,7 @@ d3.csv("radlex_hierarchy_w_links.csv", (links)=>{
 				.duration('50')
 				.style("opacity", 1);
 			
-			let name = "<strong>" + d.id + "</strong><br />";
+			let name = "<strong>" + d.data.id + "</strong><br />";
 			let def = "<strong>Definition</strong>: " + (d.data.data.definition ? d.data.data.definition : "N/A") + "<br />";
 			let desc = "<strong>Descendants</strong>: " + d.value.toString() + "<br />"; // Only leaf nodes
 			let childs = "<strong>Children</strong>: " + (d.data.children ? d.data.children.length.toString() : "0") + "<br />";
