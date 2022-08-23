@@ -3,7 +3,7 @@
 
 ## Radlex Hierarchy Visualization
 
-To visualize the hierarchical structure and distribution of the RadLex ontology, I created an interactive tree diagram with d3.js, which I adapted from the [D3 example](https://observablehq.com/@d3/collapsible-tree). Hovering on a node displays the definition, number of descendant leaf nodes, number of direct children, height (.i.e. max distance to leaf node descendant) and clicking on a term opens its RadLex page, if available. Viewing on a large screen is recommended, due to the size of the tree. 
+To visualize the hierarchical structure and distribution of the RadLex ontology, I created an interactive tree diagram with d3.js, which I adapted from the [D3 example](https://observablehq.com/@d3/collapsible-tree). Hovering on a node displays the definition, number of descendant leaf nodes, number of direct children, height (i.e. max distance to leaf node descendant) and clicking on a term opens its RadLex page, if available. Viewing on a large screen is recommended, due to the size of the tree. 
 
 ### [View Tree Diagram](https://ashtonomy.github.io/RadLex_Analysis/treemap.html)
 
