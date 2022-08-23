@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>RadLex Tree Diagram</title>
+
+		<style>
+
+		.tooltip {
+			position: absolute;
+			width: 350px;
+			text-align: left;
+			word-wrap: break-word;
+			white-space: normal;
+			padding: .5rem;
+			background: rgba(0,0,0,.75);
+			border-radius: 2px;
+			color: #FFFFFF;
+			pointer-events: none;
+			font: .75rem Helvetica;
+		}
+		
+		.node circle {
+			fill: #440154;
+			stroke: #440154;
+			stroke-width: 2px;
+		}
+		
+		.node text {
+			font: 12px Helvetica;
+			font-weight: 500;
+			pointer-events: all;
+		}
+		
+		.link {
+			fill: none;
+			stroke: #35b779;
+			stroke-width: 2px;
+		}
+		
+		</style>
+	</head>
+
+
+	<body>
+
+		<!-- load d3.js library and radlex treemap script -->	
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="radlex_treemap.js"></script>
+
+	</body>
+</html>
+
+
